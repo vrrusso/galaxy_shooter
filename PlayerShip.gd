@@ -9,7 +9,7 @@ export var speed = 400 #the ship speed in pixels/s
 
 var enlapsed_time_since_shoot = 0
 
-export (PackedScene) var Projectile 
+export (PackedScene) var Projectile = preload("res://Projectile.tscn")
 
 
 

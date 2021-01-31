@@ -10,11 +10,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "stable",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "acceleration_slow",
@@ -23,6 +18,11 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "acceleration_fast",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "stable",
 "speed": 5.0
 } ]
 
@@ -38,3 +38,6 @@ playing = true
 
 [node name="ShipHitBox" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 0, -104, 56, -40, 64, 0, 0, 16, -64, 0, -56, -40 )
+
+[node name="ProjectileOrigin" type="Position2D" parent="."]
+position = Vector2( 0, -128 )
