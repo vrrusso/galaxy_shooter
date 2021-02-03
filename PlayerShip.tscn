@@ -41,3 +41,4 @@ polygon = PoolVector2Array( 0, -104, 56, -40, 64, 0, 0, 16, -64, 0, -56, -40 )
 
 [node name="ProjectileOrigin" type="Position2D" parent="."]
 position = Vector2( 0, -128 )
+[connection signal="body_entered" from="." to="." method="_on_PlayerShip_body_entered"]

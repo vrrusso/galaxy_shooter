@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/asteroids2.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/asteroids3.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/asteroid1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/asteroids4.png" type="Texture" id=4]
+[ext_resource path="res://Asteroid.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "type1",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "type2",
+"speed": 3.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 72.6142
+
+[node name="Asteroid" type="RigidBody2D" groups=[
+"asteroids",
+]]
+position = Vector2( 356.359, 236.979 )
+gravity_scale = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AsteroidAnimation" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "type2"
+playing = true
+
+[node name="AsteroidHitBox" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

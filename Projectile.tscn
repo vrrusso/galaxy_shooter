@@ -22,9 +22,9 @@ script = ExtResource( 3 )
 [node name="ProjectileAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "projectile"
-frame = 1
 playing = true
 
 [node name="ProjectileHitBox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -32 )
 shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
