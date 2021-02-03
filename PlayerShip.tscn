@@ -15,14 +15,14 @@ animations = [ {
 "name": "acceleration_slow",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "acceleration_fast",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "stable",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "acceleration_fast",
 "speed": 5.0
 } ]
 
@@ -33,7 +33,7 @@ script = ExtResource( 4 )
 [node name="ShipAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "stable"
-frame = 2
+frame = 1
 playing = true
 
 [node name="ShipHitBox" type="CollisionPolygon2D" parent="."]

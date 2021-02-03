@@ -13,12 +13,37 @@ var number_asteroids = 7
 func _ready():
 	randomize()
 	new_game()
+	set_asteroid_horde()
+	
+func _process(delta):
+	if number_asteroids <= 0:
+		number_asteroids = 7
+		set_asteroid_horde()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func set_asteroid_horde():
+	for _i in range(number_asteroids):
+		spawn_asteroid()
+		
+
+
+func spawn_asteroid():
+	$AsteroidsPath/AndroidsSpawnLocation.offset = randi()
+	var ast = Asteroid.instance()
+	add_child(ast)
+	var direction = $AsteroidsPath/AndroidsSpawnLocation.rotation+PI/2
+	ast.position=$AsteroidsPath/AndroidsSpawnLocation.position
+	direction += rand_range(-PI/4,PI/4)
+	ast.rotation = direction
+	ast.linear_velocity = Vector2(50,0)
+	ast.linear_velocity = ast.linear_velocity.rotated(direction)
+
+
+	
 
 func _on_PlayerShip_hit():
 	game_over()
@@ -37,15 +62,7 @@ func new_game():
 
 
 func _on_EnemySpawnTimer_timeout():
-	$AsteroidsPath/AndroidsSpawnLocation.offset = randi()
-	var ast = Asteroid.instance()
-	add_child(ast)
-	var direction = $AsteroidsPath/AndroidsSpawnLocation.rotation+PI/2
-	ast.position=$AsteroidsPath/AndroidsSpawnLocation.position
-	direction += rand_range(-PI/4,PI/4)
-	ast.rotation = direction
-	ast.linear_velocity = Vector2(50,0)
-	ast.linear_velocity = ast.linear_velocity.rotated(direction)
+	pass
 	
 
 func _on_hit_asteroid():

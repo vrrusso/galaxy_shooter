@@ -12,7 +12,7 @@ _data = {
 script = ExtResource( 2 )
 
 [node name="PlayerShip" parent="." instance=ExtResource( 1 )]
-position = Vector2( 488, 544 )
+position = Vector2( 488, 700 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 one_shot = true
